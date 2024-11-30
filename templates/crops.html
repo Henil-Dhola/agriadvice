@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <video class="video-background" autoplay muted loop>
+        <source src="{% static 'video/f1.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <br><br>
+    <div class="row">
+        {% for crop in crops %}
+        <div class="col-md-4 mb-4">
+            <center>
+            <div class="crop-card" style="position: relative; border-radius: 10px; overflow: hidden;">
+                <img src="{{ crop.image.url }}" class="img-fluid" alt="{{ crop.name }}" style="width: 50%; height: 500px;border-radius: 30px; object-fit: cover;">
+                
+                <!-- Name of the Crop in the bottom-left corner -->
+                <div class="crop-name text-light" style="position: absolute; bottom: 10px; left: 350px; font-size: 20px; color:aqua; font-weight: bold; text-shadow: 1px 1px 3px #f10edbb3;">
+                    {{ crop.name }}
+                </div>
+                
+                <!-- Button in the bottom-right corner -->
+                <button style="position: absolute;  bottom: 10px; background-color:white; right: 350px; font-size: 18px; padding: 5px 10px;">
+                 <a href="{% url 'get_crop_details' name=crop.name %}" class="btn btn-primary" style="color:darkorange; text-decoration: none;">View Crop</a>
+                </button>
+                </div>
+        </center>
+        <br><br>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<style>
+    .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* This ensures the video covers the entire background */
+        z-index: -1; /* Keeps video behind content */
+    }
+</style>
+</body>
+{% endblock %}

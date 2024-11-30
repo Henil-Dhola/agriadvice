@@ -1,0 +1,271 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Advisor</title>
+    <!--<link rel="stylesheet" href="agriadvice/static/css/style.css">-->
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Header styles */
+header {
+    background: linear-gradient(rgba(0, 128, 0, 0.8), rgba(34, 139, 34, 0.7)), url('https://example.com/hero-image.jpg') center/cover no-repeat;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(0, 128, 0, 0.6);
+}
+
+.main-title {
+    font-size: medium; /* Adjust the size as needed */
+    color: #ffffff; /* Initial color */
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase; /* Makes the text uppercase */
+    letter-spacing: 3px; /* Adds spacing between the letters */
+    transition: all 0.4s ease-in-out; /* Smooth transition for hover effect */
+    position: relative; /* Enables pseudo-elements */
+    cursor: pointer; /* Pointer on hover */
+}
+
+/* Hover effect */
+.main-title:hover {
+    color: #ffcc00; /* Change color on hover */
+    transform: scale(1.1); /* Slightly enlarge the title */
+    text-shadow: 0 0 15px rgba(255, 204, 0, 0.7), /* Glow effect */
+                 0 0 25px rgba(255, 204, 0, 0.5), 
+                 0 0 35px rgba(255, 204, 0, 0.3);
+}
+
+/* Adding underline animation */
+.main-title::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #ffcc00; /* Underline color */
+    transition: width 0.4s ease, left 0.4s ease; /* Smooth underline effect */
+}
+
+.main-title:hover::before {
+    width: 100%;
+    left: 0; /* Underline expands on hover */
+}
+
+
+.logo h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: white;
+    color: #4CAF50;
+    border-radius: 5px;
+}
+
+.header-content {
+    margin-top: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-content h2 {
+    font-size: 2.5em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.header-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: #FFD700;
+    color: #4CAF50;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #FFBF00;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.services {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+.card h3 {
+    color: #4CAF50;
+}
+
+.cta {
+    text-align: center;
+    background-color: #fff;
+    padding: 50px 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+    </style>
+    <!-- <script>
+         function header() {
+        // Redirect to the demo.html page
+        window.location.href = "first.html";}
+    </script> -->
+    <script type="text/javascript">
+        (function () {
+            window.history.pushState(null, "", window.location.href);
+            window.onpopstate = function () {
+                window.history.pushState(null, "", window.location.href);
+            };
+        })();
+    </script>
+</head>
+<body>
+    <header>
+        <!--<video autoplay muted loop id="background-video">
+            <source src="{% static 'video/f1.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    -->
+        <div class="header-container">
+            <!-- Logo Section -->
+            <div class="logo">
+                <h1 class="main-title" >Agriculture Advisor</h1>
+            </div>
+    
+            <!-- Navigation Bar -->
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'crops_list' %}">Crops</a></li>
+                    <li><a href="{% url 'service' %}">Service</a></li>
+                    <li><a href="{% url 'contactus' %}">Contact US </a></li>
+                    <li><a href="{% url 'weather' %}">Weather </a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    
+                </ul>
+            </nav>
+            <!-- Search Bar and CTA Button 
+            <div class="header-actions">
+                <input type="text" class="search-bar" placeholder="Search...">
+                <button class="cta-button">Get Expert Advice</button>
+            </div>
+            -->
+        </div>
+    </header>
+     {% block content %}
+     {% endblock %}
+    <footer>
+        <p>&copy; 2024 Agriculture Advisor. All rights reserved.</p>
+    </footer>
+
+    <script src="page_script.js"></script>
+</body>
+</html>

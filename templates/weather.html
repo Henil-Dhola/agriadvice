@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  
+
+    <div>
+        <h1>Weather for {{ city }}</h1>
+
+        <form method="GET" action="{% url 'weather' %}">
+            <label for="city">Enter city name:</label>
+            <input type="text" id="city" name="city" placeholder="Enter city name" value="{{ city }}">
+
+            <label for="crop">Select crop:</label>
+            <select id="crop" name="crop">
+                <option value="rice" {% if crop == 'rice' %}selected{% endif %}>Rice</option>
+                <option value="wheat" {% if crop == 'wheat' %}selected{% endif %}>Wheat</option>
+                <option value="corn" {% if crop == 'corn' %}selected{% endif %}>Corn</option>
+                <option value="potato" {% if crop == 'potato' %}selected{% endif %}>Potato</option>
+            </select>
+
+            <button type="submit">Get Weather</button>
+        </form>
+
+        {% if weather.error %}
+            <div class="error-message">
+                <p>{{ weather.error }}</p>
+            </div>
+        {% else %}
+            <div class="weather-info">
+                <p>Temperature: {{ weather.temperature }}°C</p>
+                <p>Feels Like: {{ weather.feels_like }}°C</p>
+                <p>Description: {{ weather.description }}</p>
+                <p>Humidity: {{ weather.humidity }}%</p>
+                <p>Wind Speed: {{ weather.wind_speed }} m/s</p>
+                <p>Cloud Cover: {{ weather.clouds }}%</p>
+                <p>Rain (last 1h): {{ weather.rain }} mm</p>
+                <p>Snow (last 1h): {{ weather.snow }} mm</p>
+                <h2>{{ suitability }}</h2>
+            </div>
+        {% endif %}
+    </div>
+    <style>
+       /* General Page Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    color: #333;
+    margin: 0;
+    padding: 0;
+
+    justify-content: center;
+    align-items: center;
+   
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    gap: 15px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px; /* Set a max width for the form */
+    width: 100%; /* Allow it to be responsive */
+}
+
+label {
+    font-size: 1.1rem;
+    color: #fff;
+    text-align: center; /* Center the label text */
+}
+
+input[type="text"], select {
+    width: 100%; /* Set to 100% to take full width of form */
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Set button width to full */
+}
+
+button:hover {
+    background-color: #e85b50;
+}
+
+.weather-info, .error-message {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #ff6f61;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    input[type="text"], select, button {
+        width: 100%; /* Ensure full width on smaller screens */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p, label {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+}
+
+    </style>
+
+{% endblock %}
+

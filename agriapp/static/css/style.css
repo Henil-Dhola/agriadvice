@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%; 
+    min-height: 100%; 
+    width: auto;
+    height: auto;
+    z-index: -1; /* Send video to background */
+    transform: translate(-50%, -50%);
+    background-size: cover;
+}
+/* Header styles */
+header {
+    /* background: linear-gradient(rgba(0, 128, 0, 0.8), rgba(34, 139, 34, 0.7)), url('static/video') center/cover no-repeat; */
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background: rgba(0, 128, 0, 0.6);
+}
+/* Main title styling */
+.main-title {
+    font-size: 4em; /* Adjust the size as needed */
+    color: #ffffff; /* Initial color */
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase; /* Makes the text uppercase */
+    letter-spacing: 3px; /* Adds spacing between the letters */
+    transition: all 0.4s ease-in-out; /* Smooth transition for hover effect */
+    position: relative; /* Enables pseudo-elements */
+    cursor: pointer; /* Pointer on hover */
+}
+
+/* Hover effect */
+.main-title:hover {
+    color: #ffcc00; /* Change color on hover */
+    transform: scale(1.1); /* Slightly enlarge the title */
+    text-shadow: 0 0 15px rgba(255, 204, 0, 0.7), /* Glow effect */
+                 0 0 25px rgba(255, 204, 0, 0.5), 
+                 0 0 35px rgba(255, 204, 0, 0.3);
+}
+
+/* Adding underline animation */
+.main-title::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #ffcc00; /* Underline color */
+    transition: width 0.4s ease, left 0.4s ease; /* Smooth underline effect */
+}
+
+.main-title:hover::before {
+    width: 100%;
+    left: 0; /* Underline expands on hover */
+}
+
+.logo h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: white;
+    color: #4CAF50;
+    border-radius: 5px;
+}
+.header-content button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #28a745; /* Green Button */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.header-content button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05);
+}
+.header-content {
+    margin-top: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-content h2 {
+    font-size: 2.5em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.header-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: #FFD700;
+    color: #4CAF50;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #FFBF00;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    /* background-color: #4CAF50; */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.services {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+.card h3 {
+    color: #4CAF50;
+}
+
+.cta {
+    text-align: center;
+    background-color: #fff;
+    padding: 50px 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+/* Custom styling for the dropdown menu */
+.nav-item .dropdown-menu {
+    background-color: #fff; /* Background color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px;
+    min-width: 200px; /* Minimum width */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
+}
+
+/* Dropdown item styling */
+.dropdown-item {
+    color: #333; /* Text color */
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #4CAF50; /* Background color on hover */
+    color: white; /* Text color on hover */
+}
+
+/* Nested dropdown submenu */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -5px;
+    border-radius: 0 5px 5px 5px; /* Rounded corners on the right */
+}
+
+/* Hide submenus on mobile */
+@media (max-width: 767px) {
+    .dropdown-submenu .dropdown-menu {
+        display: none;
+    }
+
+    .dropdown-submenu:hover .dropdown-menu {
+        display: block;
+    }
+    .header-content button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}

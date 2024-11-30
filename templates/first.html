@@ -1,0 +1,47 @@
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Advisor</title>
+    <link rel="stylesheet" href="{% static 'css/style_first.css' %}">
+
+<script>
+    function getAdvice() {
+        // Redirect to the demo.html page
+        window.location.href = "{% url 'first' %}";
+    }
+    </script>
+</head>
+<body>
+  
+
+    <header>
+        <video autoplay muted loop id="background-video">
+            <source src="{% static 'video/f1.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    
+   
+    
+        <div class="header-content">
+            <br><br><br><br>
+
+            <h2>Empowering Farmers with Knowledge</h2>
+            <p></p>
+            <br><br>
+            <button onclick="getAdvice()">Get Expert Advice</button>
+        </div>
+    </header>
+    
+
+        <!-- <footer >
+            <p>&copy; 2024 Agriculture Advisor. All rights reserved.</p>
+        </footer> -->
+    
+      
+    
+</body>
+</html>
